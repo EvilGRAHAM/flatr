@@ -2,18 +2,18 @@
 % Please edit documentation in R/goodness_of_fit.R
 \name{goodness_of_fit}
 \alias{goodness_of_fit}
-\title{Flatten i*j*k contingency tables into tidy data.}
+\title{Calculate the Chi^2 and G^2 Statistics}
 \usage{
-goodness_of_fit(data)
+goodness_of_fit(model, ..., response, type = "Chisq")
 }
 \arguments{
-\item{data}{An i*j*k array.}
+\item{data}{A data frame.}
 }
 \value{
-A tibble with 3 columns.
+A numeric value
 }
 \description{
-Takes a i*j*k array, and turns it into a tibble
+goodness_of_fit() calculates the goodness of fit test statistics for contingency tables
 }
 \examples{
 lung_cancer_ct <-
@@ -46,7 +46,27 @@ lung_cancer_ct <-
         )
     )
   )
-flatten(lung_cancer_ct)
+
+lung_logit <-
+  lung_cancer_ct \%>\%
+  flatten_ct() \%>\%
+  glm(
+    Lung ~ City + Smoking
+    ,family = binomial
+    ,data = .
+  )
+
+goodness_of_fit(model = lung_logit, response = "Lung", type = "Gsq")
+lung_logit \%>\%
+  goodness_of_fit(response = "Lung", type = "Gsq")
+lung_cancer_ct \%>\%
+  flatten_ct() \%>\%
+  glm(
+    Lung ~ City + Smoking
+    ,family = binomial
+    ,data = .
+  ) \%>\%
+  goodness_of_fit(response = "Lung", type = "Gsq")
 
 }
 \author{

@@ -39,19 +39,126 @@
 #'         )
 #'     )
 #'   )
-#' flatten(lung_cancer_ct)
+#'
+#' lung_logit <-
+#'   lung_cancer_ct %>%
+#'   flatten_ct() %>%
+#'   glm(
+#'     Lung ~ City + Smoking
+#'     ,family = binomial
+#'     ,data = .
+#'   )
+#'
+#' goodness_of_fit(model = lung_logit, response = "Lung", type = "Gsq")
+#' lung_logit %>%
+#'   goodness_of_fit(response = "Lung", type = "Gsq")
+#' lung_cancer_ct %>%
+#'   flatten_ct() %>%
+#'   glm(
+#'     Lung ~ City + Smoking
+#'     ,family = binomial
+#'     ,data = .
+#'   ) %>%
+#'   goodness_of_fit(response = "Lung", type = "Gsq")
 #'
 #' @importFrom magrittr %>%
 #' @importFrom tibble tibble
+#' @import dplyr
 #'
 #' @export
 
-goodness_of_fit <- function(data){
-  # This function is desinged to only work with contingency tables in the form of an array.
+goodness_of_fit <- function(model, ..., response, type = "Chisq"){
+  # This function is designed to only work with contingency tables in the form of an array.
+  #
+  if(!is.null(model$data)){
+    data <- model$data
+  }
   # If the inputed data is not an array, the function is exited, and an error message is displayed.
   if(!is.data.frame(data)){
-    stop("Need data frame stupid")
+    stop("Please enter a data frame")
   } else{
-    stop("Foo")
+    # Number of combinations of the response variable - number of parameters in the model
+    df <-
+      (data %>%
+         select(-matches(response)) %>%
+         unique() %>%
+         tally() %>%
+         as.numeric()) - length(coef(model))
+
+    # Creates a data frame where the response column is converted into integers 0, 1, ...
+    data_response <-
+      data %>%
+      transmute_at(
+        vars(matches(response))
+        ,unclass
+      ) %>%
+      select(Response_Num = matches(response)) %>%
+      transmute(Response_Num = Response_Num - 1)
+
+    data_summary <-
+      data %>%
+      ungroup() %>%
+      # Combines the data with integer version of the Response
+      cbind(data_response) %>%
+      as_tibble() %>%
+      group_by_at(
+        vars(
+          colnames(data)[colnames(data) != response]
+        )
+      ) %>%
+      # Summarizes by the 2 explanatory variables, and then finds the number of entries for each level of the Response
+      summarize(
+        Response_0 = sum(Response_Num)
+        ,Response_1 = length(Response_Num) - Response_0
+        ,Total = Response_1 + Response_0
+      ) %>%
+      ungroup()
+
+    response_n_cols <- c("n", response)
+
+    data_out <-
+      data_summary %>%
+      cbind(
+        phat =
+          predict(
+            object = model
+            ,newdata = data_summary
+            ,type = "response"
+          )
+      ) %>%
+      as_tibble() %>%
+      mutate(
+        Expected_0 = phat * Total
+        ,Expected_1 = (1 - phat) * Total
+      )
+
+    if(type == "Chisq"){
+      data_out <-
+        data_out %>%
+        mutate(
+          ChiSq_0 = (Response_0 - Expected_0)^2 / Expected_0
+          ,ChiSq_1 = (Response_1 - Expected_1)^2 / Expected_1
+        ) %>%
+        select(
+          ChiSq_0
+          ,ChiSq_1
+        ) %>%
+        sum()
+    } else if(type == "Gsq"){
+      data_out <-
+        data_out %>%
+        mutate(
+          GSq_0 = 2 * Response_0 * log(Response_0 / Expected_0)
+          ,GSq_1 = 2 * Response_1 * log(Response_1 / Expected_1)
+        ) %>%
+        select(
+          GSq_0
+          ,GSq_1
+        ) %>%
+        sum()
+    } else{
+      stop("Please enter a valid test.")
+    }
+    return(list(data_out, pchisq(q = data_out, df = df, lower.tail = FALSE)))
   }
 }

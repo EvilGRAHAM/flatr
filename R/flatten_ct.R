@@ -1,6 +1,6 @@
 #' Flatten i*j*k contingency tables into tidy data.
 #'
-#' Takes a i*j*k array, and turns it into a tibble
+#' flatten_ct() takes a i*j*k array, and turns it into a tibble
 #'
 #' @param data An i*j*k array.
 #'
@@ -39,14 +39,14 @@
 #'         )
 #'     )
 #'   )
-#' flatten(lung_cancer_ct)
+#' flatten_ct(lung_cancer_ct)
 #'
 #' @importFrom magrittr %>%
 #' @importFrom tibble tibble
 #'
 #' @export
 
-flatten <- function(data){
+flatten_ct <- function(data){
   # This function is desinged to only work with contingency tables in the form of an array.
   # If the inputed data is not an array, the function is exited, and an error message is displayed.
   if(!is.array(data)){
