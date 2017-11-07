@@ -31,18 +31,18 @@ lung_cancer_ct <-
       )
     ,dim = c(2, 2, 8)
     ,dimnames = list(
-      Smoking = c("Y", "N")
-      ,Lung = c("Y", "N")
+      Smoking = c('Y', 'N')
+      ,Lung = c('Y', 'N')
       ,City =
         c(
-          "Beij"
-          ,"Shan"
-          ,"Shen"
-          ,"Nanj"
-          ,"Harb"
-          ,"Zhen"
-          ,"Taiy"
-          ,"Nanc"
+          'Beij'
+          ,'Shan'
+          ,'Shen'
+          ,'Nanj'
+          ,'Harb'
+          ,'Zhen'
+          ,'Taiy'
+          ,'Nanc'
         )
     )
   )

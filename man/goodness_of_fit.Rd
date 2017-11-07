@@ -8,12 +8,27 @@ goodness_of_fit(model, ..., response, type = "Chisq")
 }
 \arguments{
 \item{model}{a GLM regression model.}
+
+\item{response}{a string with the same name as the response column in the data}
+
+\item{type}{either "Chisq" or "Gsq", which determines the type of goodness of fit test that is ran. Defaults to "Chisq".}
 }
 \value{
-A numeric value
+A list with class "\code{ct_goodness_of_fit}" containing the following components:
+
+\code{test} the type of test used.
+
+\code{model} the name of the inputted model.
+
+\code{statistic} The value of the test statistic as determined by the type parameter
+
+\code{df} The number of degrees of freedom.
+  This equals the number of combinations for explanatory variables less the number of parameters in the model
+
+\code{p.value} The p-value calculated under a Chi-Squared distribution.
 }
 \description{
-goodness_of_fit() calculates the goodness of fit test statistics for contingency tables
+Calculates the goodness of fit test statistics for contingency tables
 }
 \examples{
 lung_cancer_ct <-

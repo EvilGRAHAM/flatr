@@ -1,10 +1,25 @@
 #' Calculate the Chi^2 and G^2 Statistics
 #'
-#' goodness_of_fit() calculates the goodness of fit test statistics for contingency tables
+#' Calculates the goodness of fit test statistics for contingency tables
 #'
 #' @param model a GLM regression model.
 #'
-#' @return A numeric value
+#' @param response a string with the same name as the response column in the data
+#'
+#' @param type either "Chisq" or "Gsq", which determines the type of goodness of fit test that is ran. Defaults to "Chisq".
+#'
+#' @return A list with class "\code{ct_goodness_of_fit}" containing the following components:
+#'
+#' @return \code{test} the type of test used.
+#'
+#' @return \code{model} the name of the inputted model.
+#'
+#' @return \code{statistic} The value of the test statistic as determined by the type parameter
+#'
+#' @return \code{df} The number of degrees of freedom.
+#'   This equals the number of combinations for explanatory variables less the number of parameters in the model
+#'
+#' @return \code{p.value} The p-value calculated under a Chi-Squared distribution.
 #'
 #' @author Scott D Graham, \email{scott.grah95@@gmail.com}
 #'
