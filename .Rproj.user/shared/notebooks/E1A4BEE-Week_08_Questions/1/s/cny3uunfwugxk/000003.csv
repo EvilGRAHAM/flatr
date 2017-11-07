@@ -1,0 +1,17 @@
+"0","lung_cancer_summary %<>% 
+  cbind(
+    phat = 
+      predict(
+        object = logit_lung_cancer
+        ,newdata = lung_cancer_summary %>% dplyr::select(City, Smoking)
+        ,type = ""response""
+      ) %>% t
+  ) %>% 
+  mutate(
+    Expected_Yes = Total*phat
+    ,Expected_No = Total*(1-phat)
+  )
+"
+"2","Error in eval(lhs, parent, parent) : 
+  object 'lung_cancer_summary' not found
+"

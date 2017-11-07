@@ -2,7 +2,7 @@
 #'
 #' goodness_of_fit() calculates the goodness of fit test statistics for contingency tables
 #'
-#' @param data A data frame.
+#' @param model a GLM regression model.
 #'
 #' @return A numeric value
 #'
@@ -133,7 +133,7 @@ goodness_of_fit <- function(model, ..., response, type = "Chisq"){
       )
 
     if(type == "Chisq"){
-      data_out <-
+      Chisq_Stat <-
         data_out %>%
         mutate(
           ChiSq_0 = (Response_0 - Expected_0)^2 / Expected_0
@@ -144,8 +144,19 @@ goodness_of_fit <- function(model, ..., response, type = "Chisq"){
           ,ChiSq_1
         ) %>%
         sum()
+
+      p.value <- pchisq(q = Chisq_Stat, df = df, lower.tail = FALSE)
+
+      results <-
+        list(
+          test = "Chi-squared"
+          ,model = deparse(substitute(model))
+          ,statistic = Chisq_Stat
+          ,df = df
+          ,p.value = p.value
+        )
     } else if(type == "Gsq"){
-      data_out <-
+      Gsq_Stat <-
         data_out %>%
         mutate(
           GSq_0 = 2 * Response_0 * log(Response_0 / Expected_0)
@@ -156,9 +167,23 @@ goodness_of_fit <- function(model, ..., response, type = "Chisq"){
           ,GSq_1
         ) %>%
         sum()
+
+      p.value <- pchisq(q = Gsq_Stat, df = df, lower.tail = FALSE)
+
+      results <-
+        list(
+          test = "G-squared"
+          ,model = deparse(substitute(model))
+          ,statistic = Gsq_Stat
+          ,df = df
+          ,p.value = p.value
+        )
     } else{
       stop("Please enter a valid test.")
     }
-    return(list(data_out, pchisq(q = data_out, df = df, lower.tail = FALSE)))
+
+    class(results) <- "ct_goodness_of_fit"
+
+    return(results)
   }
 }

@@ -7,7 +7,7 @@
 goodness_of_fit(model, ..., response, type = "Chisq")
 }
 \arguments{
-\item{data}{A data frame.}
+\item{model}{a GLM regression model.}
 }
 \value{
 A numeric value
