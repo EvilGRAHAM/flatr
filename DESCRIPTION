@@ -1,7 +1,7 @@
 Package: flatr
 Type: Package
-Title: Transforms Contingency Tables to Data Frames
-Version: 0.1.0
+Title: Transforms Contingency Tables to Data Frames, and analyse them
+Version: 0.2.0
 Author: Scott D. Graham
 Maintainer: Scott D. Graham <scott.grah95@gmail.com>
 Description: 

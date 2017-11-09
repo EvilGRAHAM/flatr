@@ -9,37 +9,7 @@
 #' @author Scott D Graham, \email{scott.grah95@@gmail.com}
 #'
 #' @examples
-#' lung_cancer_ct <-
-#'   array(
-#'     data =
-#'       c(
-#'         126, 35, 100, 61
-#'         ,908, 497, 688, 807
-#'         ,913, 336, 747, 598
-#'         ,235, 58, 172, 121
-#'         ,402, 121, 308, 215
-#'         ,182, 72, 156, 98
-#'         ,60, 11, 99, 43
-#'        ,104, 21, 89, 36
-#'       )
-#'     ,dim = c(2, 2, 8)
-#'     ,dimnames = list(
-#'       Smoking = c("Y", "N")
-#'       ,Lung = c("Y", "N")
-#'       ,City =
-#'         c(
-#'           "Beij"
-#'           ,"Shan"
-#'           ,"Shen"
-#'           ,"Nanj"
-#'           ,"Harb"
-#'           ,"Zhen"
-#'           ,"Taiy"
-#'           ,"Nanc"
-#'         )
-#'     )
-#'   )
-#' flatten_ct(lung_cancer_ct)
+#' flatten_ct(lung_cancer)
 #'
 #' @importFrom magrittr %>%
 #' @importFrom tibble tibble
