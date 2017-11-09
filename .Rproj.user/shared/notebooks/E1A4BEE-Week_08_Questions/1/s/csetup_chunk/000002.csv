@@ -1,5 +1,18 @@
-"0","knitr::opts_chunk$set(echo = TRUE)"
-"0","library(tidyverse, warn.conflicts = FALSE, quietly = TRUE)"
+"0","knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse, warn.conflicts = FALSE, quietly = TRUE)
+"
+"2","Loading tidyverse: ggplot2
+Loading tidyverse: tibble
+Loading tidyverse: tidyr
+Loading tidyverse: readr
+Loading tidyverse: purrr
+Loading tidyverse: dplyr
+"
+"2","Conflicts with tidy packages ---------------------------------------------------------------------------------------------------
+"
+"2","filter(): dplyr, stats
+lag():    dplyr, stats
+"
 "0","library(magrittr, warn.conflicts = FALSE, quietly = TRUE)"
 "0","library(flatr, warn.conflicts = FALSE, quietly = TRUE)"
 "0","theme_minimal2 <- theme_minimal() %>%  theme_set()"
