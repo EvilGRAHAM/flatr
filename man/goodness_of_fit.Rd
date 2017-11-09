@@ -40,17 +40,17 @@ lung_logit <-
     ,data = .
   )
 
-goodness_of_fit(model = lung_logit, response = "Lung", type = "Gsq")
+goodness_of_fit(model = lung_logit, response = "Lung", type = "Chisq")
 lung_logit \%>\%
   goodness_of_fit(response = "Lung", type = "Gsq")
-lung_cancer_ct \%>\%
+lung_cancer \%>\%
   flatten_ct() \%>\%
   glm(
     Lung ~ City + Smoking
     ,family = binomial
     ,data = .
   ) \%>\%
-  goodness_of_fit(response = "Lung", type = "Gsq")
+  goodness_of_fit(response = "Lung", type = "Chisq")
 
 }
 \author{
