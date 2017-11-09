@@ -51,7 +51,7 @@
 #'
 #' @export
 
-goodness_of_fit <- function(model, ..., response, type = "Chisq"){
+goodness_of_fit <- function(model, response, type = "Chisq", ...){
   # This function is designed to only work with contingency tables in the form of an array.
   #
   if(!is.null(model$data)){

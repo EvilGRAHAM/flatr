@@ -8,6 +8,7 @@
 #'
 #' @export
 print.ct_goodness_of_fit <- function(x, ...){
+  cat("\n")
   cat(x$test, "Goodness of Fit Test", "\n\n")
   cat("model:", x$model, "\n")
   cat(x$test, "=", round(x$statistic, 5))
