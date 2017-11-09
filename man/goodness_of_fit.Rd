@@ -4,7 +4,7 @@
 \alias{goodness_of_fit}
 \title{Calculate the Chi^2 and G^2 Statistics}
 \usage{
-goodness_of_fit(model, ..., response, type = "Chisq")
+goodness_of_fit(model, response, type = "Chisq", ...)
 }
 \arguments{
 \item{model}{a GLM regression model.}
