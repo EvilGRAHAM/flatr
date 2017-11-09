@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Lung Cancer by whether or not a person smokes and City.\n#'\n#' Based on data in Z. Liu, Int. J. Epidemiol., 21: 197–201, 1992.\n#'\n#' @format An Array with 2*2*8 dimensions\n#' \\describe{\n#' \\item{Smoking}{Whether or not a person smokes.}\n#' \\item{Lung}{Whether or not a person has lung cancer.}\n#' \\item{City}{Name of the city a person lives in.}\n#' }\n#' @examples\n#' lung_cancer\n\"lung_cancer\"\n",
+    "created" : 1510258190509.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2634132625",
+    "id" : "CE2A4CB",
+    "lastKnownWriteTime" : 1510258732,
+    "last_content_update" : 1510258732405,
+    "path" : "~/GitHub/flatr/R/data-lung_cancer.R",
+    "project_path" : "R/data-lung_cancer.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

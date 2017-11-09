@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Flatten i*j*k contingency tables into tidy data.\n#'\n#' flatten_ct() takes a i*j*k array, and turns it into a tibble\n#'\n#' @param data An i*j*k array.\n#'\n#' @return A tibble with 3 columns.\n#'\n#' @author Scott D Graham, \\email{scott.grah95@@gmail.com}\n#'\n#' @examples\n#' flatten_ct(lung_cancer)\n#'\n#' @importFrom magrittr %>%\n#' @importFrom tibble tibble\n#'\n#' @export\n\nflatten_ct <- function(data){\n  # This function is desinged to only work with contingency tables in the form of an array.\n  # If the inputed data is not an array, the function is exited, and an error message is displayed.\n  if(!is.array(data)){\n    stop(\"Data is not an array!\")\n  } else{\n    get_num_reps_i <- function(data, dim_num){\n      num_reps <- c()\n      for(i in 1:dim_num){\n        num_reps[i] <- sum(data[i,,])\n      }\n      num_reps\n    }\n\n    get_num_reps_j <- function(data, dim_num){\n      num_reps <- c()\n      h <- 0\n      for(i in 1:dim_num[1]){\n        for(j in 1:dim_num[2]){\n          h <- h + 1\n          num_reps[h] <- sum(data[i, j,])\n        }\n      }\n      num_reps\n    }\n\n    get_num_reps_k <- function(data, dim_num){\n      num_reps <- c()\n      h <- 0\n      for(i in 1:dim_num[1]){\n        for(j in 1:dim_num[2]){\n          for(k in 1:dim_num[3]){\n            h <- h + 1\n            num_reps[h] <- sum(data[i, j, k])\n          }\n        }\n      }\n      num_reps\n    }\n\n    # Gets the values i,j,k for an i*j*k contingency table\n    data_dim_num <- dim(data)\n\n    # Gets the names of the dimensions, and their levels\n    data_names_levels <- dimnames(data)\n\n    # Takes just the names of the dimensions\n    data_dim_names <- names(data_names_levels)\n\n    # Gets the levels for each of dimensions i, j, and k.\n    data_i_levels <- data_names_levels[[1]]\n    data_j_levels <- data_names_levels[[2]]\n    data_k_levels <- data_names_levels[[3]]\n\n    # Generates a tibble with one column for each of the i, j, and k\n    data_flat <-\n      tibble(\n        i_col =\n          data_i_levels %>%\n          as.factor %>%\n          rep(\n            times =\n              data %>%\n              get_num_reps_i(dim_num = data_dim_num[1])\n          )\n        ,j_col =\n          data_j_levels %>%\n          rep(\n            times = data_dim_num[1]\n          ) %>%\n          as.factor %>%\n          rep(\n            times =\n              data %>%\n              get_num_reps_j(dim_num = data_dim_num[1:2])\n          )\n        ,k_col =\n          data_k_levels %>%\n          rep(\n            times = data_dim_num[1] * data_dim_num[2]\n          ) %>%\n          as.factor %>%\n          rep(\n            times =\n              data %>%\n              get_num_reps_k(dim_num = data_dim_num)\n          )\n      )\n    colnames(data_flat) <- data_dim_names\n    return(data_flat)\n  }\n}\n",
+    "created" : 1509741539588.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1823459387",
+    "id" : "C3C0F6A3",
+    "lastKnownWriteTime" : 1510258575,
+    "last_content_update" : 1510258575404,
+    "path" : "~/GitHub/flatr/R/flatten_ct.R",
+    "project_path" : "R/flatten_ct.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
