@@ -5,6 +5,8 @@
 #' @param x A list
 #'
 #' @author Scott D Graham, \email{scott.grah95@@gmail.com}
+#'
+#' @export
 print.ct_goodness_of_fit <- function(x, ...){
   cat(x$test, "Goodness of Fit Test", "\n\n")
   cat("model:", x$model, "\n")
