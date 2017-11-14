@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1510597619220.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "363229939",
+    "id" : "482EB613",
+    "lastKnownWriteTime" : 1510182644,
+    "last_content_update" : 1510601298450,
+    "path" : "~/GitHub/grahamStat/projects/STAT_541/Cumulative_Logit_Models_for_Multi-Ordinal_Responses/index.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "76,0",
+        "last_setup_crc32" : "",
+        "scrollLine" : "48"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1510070366247.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "203749551",
+    "id" : "A06A7F3C",
+    "lastKnownWriteTime" : 1510259432,
+    "last_content_update" : 1510259432382,
+    "path" : "~/GitHub/flatr/R/print_ct_goodness_of_fit.R",
+    "project_path" : "R/print_ct_goodness_of_fit.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

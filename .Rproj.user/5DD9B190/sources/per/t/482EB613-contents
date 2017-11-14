@@ -1,0 +1,325 @@
+---
+title: "Cumulative Logit Models for Multi-Ordinal Responses"
+author: "Scott Graham"
+date: "November 08, 2017"
+output:
+  ioslides_presentation:
+    smaller: true
+---
+\[
+  \newcommand{\Prob}{\operatorname{P}}
+  \newcommand{\E}{\operatorname{E}}
+  \newcommand{\Var}{\operatorname{Var}}
+  \newcommand{\Cov}{\operatorname{Cov}}
+  \newcommand{\se}{\operatorname{se}}
+  \newcommand{\re}{\operatorname{re}}
+  \newcommand{\ybar}{{\overline{Y}}}
+  \newcommand{\phat}{{\hat{p}}}
+  \newcommand{\that}{{\hat{T}}}
+  \newcommand{\med}{{\tilde{Y}}}
+  \newcommand{\Logit}{{\operatorname{Logit}}}
+  \]
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(MASS, warn.conflicts = FALSE, quietly = TRUE)
+library(ordinal, warn.conflicts = FALSE, quietly = TRUE)
+library(knitr, warn.conflicts = FALSE, quietly = TRUE)
+library(kableExtra, warn.conflicts = FALSE, quietly = TRUE)
+library(flatr, warn.conflicts = FALSE, quietly = TRUE)
+library(tidyverse, warn.conflicts = FALSE, quietly = TRUE)
+library(magrittr, warn.conflicts = FALSE, quietly = TRUE)
+
+theme_minimal2 <- theme_minimal() %>%  theme_set()
+theme_minimal2 <-
+  theme_update(
+    panel.border = element_rect(
+      linetype = "solid"
+      ,colour = "grey92"
+      ,fill = NA
+    )
+    ,strip.background = element_rect(
+      linetype = "solid"
+      ,colour = "grey92"
+      ,fill = NA
+    )
+  )
+pol_ct <- 
+  array(
+    data = 
+      c(
+        44, 18
+        ,47, 28
+        ,118, 86
+        ,23, 39
+        ,32, 48
+        ,36, 12
+        ,34, 18
+        ,53, 62
+        ,18, 45
+        ,23, 51
+      )
+    ,dim = c(2, 5, 2)
+    ,dimnames = list(
+      Party = c("Democrat", "Republican")
+      ,Ideology = c("VL", "SL", "M", "SC", "VC")
+      ,Gender = c("F", "M")
+    )
+  )
+
+pol_tidy <- flatten_ct(pol_ct)
+pol_tidy$Ideology <- 
+  factor(
+    x = pol_tidy$Ideology
+    ,levels = levels(pol_tidy$Ideology)[c(5, 3, 1, 2, 4)]
+    ,ordered = TRUE
+  )
+```
+
+# Theory
+## Data
+- $Y_{i}$ is Ordinal
+$$
+  Y_{i} = 1, 2, \dots, J
+$$
+- Ex: Likert Scale
+$$
+  Y_{i} =
+  \begin{cases}
+    1,\text{ if Strongly Disagree}          \\
+    2,\text{ if Disagree}                   \\
+    3,\text{ if Neither Agree or Disagree}  \\
+    4,\text{ if Agree}                      \\
+    5,\text{ if Strongly Agree}             
+  \end{cases}
+$$
+
+
+## Cumulative Logit
+- Recall:
+$$
+  \Prob\left( Y \leq j \right) =
+  \sum_{i=1}^{j}\pi_{i}
+$$
+- Let:
+$$
+  L_{j} =
+  \Logit\left[ \Prob\left( Y \leq j \right) \right] =
+  \ln\left[ \frac{\Prob\left( Y \leq j \right)}{1 - \Prob\left( Y \leq j \right)} \right] =
+  \ln\left[ \frac{\sum_{i=1}^{j}\pi_{i}}{\sum_{i=j+1}^{J}\pi_{i}} \right]
+$$
+- Where:
+$$
+  j = 1, 2, \dots J-1
+$$
+
+
+## Cumulative Logit Model
+- We can consider $J-1$ logistic regressions, each measuring the log odds of $Y_{i} \leq j$ vs. $Y_{i} > j$
+$$
+  L_{j} = \beta_{j,0} + \sum_{i=1}^{p}\beta_{j,i}X_{i}
+$$
+- Ex:
+$$
+  L_{1} = \beta_{1,0} + \sum_{i=1}^{p}\beta_{1,i}X_{i}
+$$
+$$
+  L_{2} = \beta_{2,0} + \sum_{i=1}^{p}\beta_{2,i}X_{i}
+$$
+$$
+  \vdots
+$$
+$$
+  L_{J-1} = \beta_{J-1,0} + \sum_{i=1}^{p}\beta_{J-1,i}X_{i}
+$$
+
+
+## Proportional-Odds
+- However because all the $\beta_{j,i}$'s differ, we can't make a comparison to the baseline model!
+$$
+  L_{j} =
+  \alpha_{j} - \left( \sum_{i=1}^{p}\beta_{i}X_{i} \right),
+  \forall j = 1,2,\dots, J-1
+$$
+
+- Hold the $\beta_{i}$'s constant and only vary $\alpha_{j}$
+- Note:
+$$
+  L_{1} \leq
+  L_{2} \leq
+  \dots \leq
+  L_{J-1}
+$$
+
+
+## Probability
+- Rearranging:
+$$
+  \Prob\left( Y \leq j \middle| X_{i} = x_{i}, \forall i = 1, \dots, p \right) =
+  \frac{e^{\alpha_{j} - \left( \sum_{i=1}^{p}\beta_{i}X_{i}\right)}}{1 + e^{\alpha_{j} - \left( \sum_{i=1}^{p}\beta_{i}X_{i}\right)}}
+$$
+$$
+  \implies
+  \Prob\left( Y = j \right) =
+  \Prob\left( Y \leq j \right) - \Prob\left( Y \leq j-1 \right) =
+  \Prob\left( Y > j-1 \right) - \Prob\left( Y > j \right)
+$$
+$$
+  =
+  \frac{1}{1 + e^{\alpha_{j} - \left( \sum_{i=1}^{p}\beta_{i}X_{i}\right)}} - \frac{1}{1 + e^{\alpha_{j} - \left( \sum_{i=1}^{p}\beta_{i}X_{i}\right)}}
+$$
+
+
+
+# Example
+## Ideology by Gender and Political Party
+```{r Data, echo = FALSE, results = "asis"}
+pol_tidy %>% 
+  head() %>% 
+  kable()
+```
+
+$$
+  VL < SL < M < SC < VC
+$$
+$$
+  \implies J = 5
+$$
+
+
+## Regression
+```{r Regression, echo = FALSE}
+ideology_logit_1 <- 
+  MASS::polr(
+    Ideology ~ Party
+    ,data = pol_tidy
+  )
+summary(ideology_logit_1)
+```
+
+
+## Coefficients
+$$
+  \alpha_{1} = -1.4944
+$$
+$$
+  \alpha_{2} = -0.5000
+$$
+$$
+  \alpha_{3} = 1.2116
+$$
+$$
+  \alpha_{4} = 2.0441
+$$
+$$
+  \beta = 0.9745
+$$
+$$
+  X =
+  \begin{cases}
+    0,\text{ if Democrat}   \\
+    1,\text{ if Republican}
+  \end{cases}
+$$
+- For a fixed $j$, the estimated log odds in favour of being more conservative than more liberal is `r round(ideology_logit_1$coefficients, 4)` greater for a Republican vs. a Democrat.
+
+## 
+```{r Plot1, echo = FALSE}
+pol_pred <- 
+  ideology_logit_1 %>% 
+  predict(
+    newdata = data.frame(Party = c("Democrat", "Republican"))
+    ,type = "probs"
+  ) %>%
+  t() %>% 
+  as.data.frame() %>% 
+  rownames_to_column() %>% 
+  as.tibble()
+
+colnames(pol_pred) <- c("Ideology", "Democrat", "Republican")
+
+pol_pred <-
+  pol_pred %>% 
+  gather(key = Party, value = Probability, - Ideology) %>% 
+  mutate(
+    Ideology = as.factor(Ideology)
+    ,Party = as.factor(Party)
+  ) %>% 
+  group_by(Party) %>% 
+  mutate(
+    `Cumulative Probability` = cumsum(Probability)
+    ,Odds = `Cumulative Probability` / (1 - `Cumulative Probability`)
+    ,`Log Odds` = log(Odds)
+  )
+
+pol_pred$Ideology <- 
+  factor(
+    x = pol_pred$Ideology
+    ,levels = levels(pol_pred$Ideology)[c(5, 3, 1, 2, 4)]
+    ,ordered = TRUE
+  )
+
+pol_pred %>% 
+  ggplot(
+    aes(
+      x = Ideology
+      ,y = Probability
+      ,colour = Party
+      ,group = Party
+    )
+  ) +
+  geom_line(size = 1) +
+  scale_colour_brewer(
+    type = "qual"
+    ,name = "Party:"
+    ,palette = "Set2"
+  ) + 
+  labs(title = "P(Y = j)")
+```
+
+
+##
+```{r Plot2, echo = FALSE}
+pol_pred %>% 
+  ggplot(
+    aes(
+      x = Ideology
+      ,y = `Cumulative Probability`
+      ,colour = Party
+      ,group = Party
+    )
+  ) +
+  geom_line(size = 1) +
+  scale_colour_brewer(
+    type = "qual"
+    ,name = "Party:"
+    ,palette = "Set2"
+  ) + 
+  labs(title = "P(Y <= j)")
+```
+
+
+##
+```{r Plot3, echo = FALSE}
+pol_pred %>% 
+  ggplot(
+    aes(
+      x = Party
+      ,y = `Log Odds`
+      ,colour = Ideology
+      ,group = Ideology
+    )
+  ) +
+  geom_line(size = 1) +
+  scale_colour_brewer(
+    type = "qual"
+    ,name = "Ideology:"
+    ,palette = "Set2"
+  ) + 
+  labs(title = expression(ln(frac("P(Y<=j)","P(Y>j)"))))
+```
+
+# References
+##
+- Agresti, A. (2007). An Introduction to Categorical Data Analysis. Hoboken, NJ: Wiley-Interscience.
+- 8.4 - The Proportional-Odds Cumulative Logit Model. (n.d.). Retrieved November 07, 2017, from https://onlinecourses.science.psu.edu/stat504/node/176

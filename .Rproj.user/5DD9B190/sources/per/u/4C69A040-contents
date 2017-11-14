@@ -1,0 +1,48 @@
+# Creates a data frame where the response column is converted into integers 0, 1, ...
+pol_response <-
+  pol_tidy %>%
+  mutate(Response_Num = Response %>% unclass() %>% as.ordered)# %>%
+  # transmute(
+  #   Response_Num = as.numeric(Response_Num)
+  #   ,Response_Num = Response_Num - 1
+  # )
+
+pol_summ <- 
+  pol_response %>%
+  ungroup() %>%
+  # Combines the data with integer version of the Response
+  as.tibble() %>% 
+  mutate(Response_Num = as.ordered(Response_Num)) %>% 
+  group_by(Party, Gender) %>% 
+  count(Response_Num) 
+
+pol_summ2 <- 
+  pol_tidy %>%
+  ungroup() %>%
+  # Combines the data with integer version of the Response
+  cbind(pol_response) %>% 
+  as.tibble() %>% 
+  mutate(Response_Num = as.ordered(Response_Num)) %>% 
+  group_by(Party, Gender) %>% 
+  count(Response_Num) %>% 
+  tally()
+
+pol_summary <- 
+  pol_summ %>% 
+  left_join(pol_summ2)
+
+pol_out <-
+  pol_summary %>%
+  cbind(
+    phat =
+      predict(
+        object = ideology_logit_1
+        ,newdata = pol_summary
+        ,type = "response"
+      )
+  ) %>%
+  as_tibble() %>%
+  mutate(
+    Expected_0 = phat * Total
+    ,Expected_1 = (1 - phat) * Total
+  )
