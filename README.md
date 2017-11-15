@@ -1,21 +1,4 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-    ## Loading required package: dplyr
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-    ## Loading required package: tibble
-
-    ## Loading required package: magrittr
-
 flatr
 =====
 
