@@ -1,20 +1,100 @@
 [0mMicrosoft Windows [Version 10.0.15063][0K[?25l
 (c) 2017 Microsoft Corporation. All rights reserved.[0K
 [0K
-[6nc[0Kd[0K[46G[?25lC:\Users\scott_000\Documents\GitHub\flatr>cd .[0K[?25h.[0K[?25l
+C:\Users\scott_000\Documents\GitHub\flatr>[0K[?25hc[0Kd[0K[46G[?25lC:\Users\scott_000\Documents\GitHub\flatr>cd .[0K[?25h.[0K[?25l
 [0K
-C:\Users\scott_000\Documents\GitHub>[0K[?25hcd ..[0K[?25lC:\Users\scott_000\Documents\GitHub>cd .[0K[?25h[?25lC:\Users\scott_000\Documents\GitHub>cd[0K[40G[?25h[39G[?25lC:\Users\scott_000\Documents\GitHub>c[0K[?25h[?25lC:\Users\scott_000\Documents\GitHub>[0K[?25hflatr_0.01.0.tar.gz[0K]0;[?25l
-[0K[?25h]0; [?25l
-C:\Users\scott_000\Documents\GitHub>[0K[?25hR CMD check "flatr_0.01.0.zip"[0K]0;[?25l
-[0K[?25hWarning: 'flatr_0.01.0.zip' is neither a file nor directory, skipping[0K[?25l
+C:\Users\scott_000\Documents\GitHub>[0K[?25hR[0K[39G[?25lC:\Users\scott_000\Documents\GitHub>R C[0K[?25hM[0KD[0K[43G[?25lC:\Users\scott_000\Documents\GitHub>R CMD c[0K[?25hh[0Ke[0Kc[0Kk[0K[49G[?25lC:\Users\scott_000\Documents\GitHub>R CMD check 0[0K[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check[0K[49G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check -[0K[?25h-[0Ka[0Ks[0K-[0K-[0Kc[0Kr[0Ka[0Kn[0K[60G[?25l
 [0K
-[0K[?25h]0; [?25l
-C:\Users\scott_000\Documents\GitHub>[0K[?25hR CMD check "flatr_0.01.0.zip"[0K[66G[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "flatr_0.01.0.zi"[0K[65G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "flatr_0.01.0.z"[0K[64G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "flatr_0.01.0."[0K[63G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "flatr_0.01.0"[0K[62G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "flatr_0.01."[0K[61G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "flatr_0.01"[0K[60G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "flatr_0.0"[0K[59G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "flatr_0."[0K[58G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "flatr_0"[0K[57G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "flatr_"[0K[56G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "flatr"[0K[55G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "flat"[0K[54G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "fla"[0K[53G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "fl"[0K[52G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "f"[0K[51G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check ""[0K[50G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check "flatr_0.01.0.tar.gz"[0K[69G[?25h]0;[?25l
-[0K[?25h* using log directory 'C:/Users/scott_000/Documents/GitHub/flatr.Rcheck'[0K[?25l
-* using R version 3.4.2 (2017-09-28)[0K
+[0K
+[0K
+                                                          [0;7;45m┌────────────────────────────┐[0m[0K
+                                                          [0;7;45m│Enter char to copy up to:   │[0m[0K
+                                                          [0;7;45m└────────────────────────────┘[0m[0K[6A[60G[?25h[?25l
+
+
+
+[0K
+[0K
+[0K[6A[60G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check --as--cran "[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[61G[?25h[?25l
+
+
+
+                                                          [0;7;45m┌────────────────────────────┐[0m[0K
+                                                          [0;7;45m│Enter char to copy up to:   │[0m[0K
+                                                          [0;7;45m└────────────────────────────┘[0m[0K[6A[61G[?25h[?25l
+
+
+
+[0K
+[0K
+[0K[6A[61G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check --as--cran "^V[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[63G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check --as--cran "[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[61G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check --as--cran[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[60G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check --as--cran "[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[61G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check --as--cran "flatr_0.01.0.tar.gz[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[80G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check --as--cran "flatr_0.01.0.tar.gz/[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[81G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check --as--cran "flatr_0.01.0.tar.gz[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[80G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check --as--cran "flatr_0.01.0.tar.gz"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[81G[?25h]0;[?25l
+[?25hWarning: unknown option '--as--cran'[0K[?25l
+[0K
+[0K
+[0K
+[0K
+[0K[4A[?25h* using log directory 'C:/Users/scott_000/Documents/GitHub/flatr.Rcheck'[0K[?25l
+* using R versio[0K
+[0K
+[0K
+[0K[3A[14G[?25h[?25l* using R version 3.4.2 (2017-09-28)[0K
 * using platform: x86_64-w64-mingw32 (64-bit)[0K
 * using session charset: ISO8859-1[0K
-* checking for file 'flatr/[0K[25G[?25h[?25l* checking for file 'flatr/DESCRIPTION' ... OK[0K
+* checking for file 'flatr/DESCRIPTION' ... OK[0K
 * checking extension type ... Package[0K
 * this is package 'flatr' version '0.01.0'[0K
 * package encoding: UTF-8[0K
@@ -22,8 +102,8 @@ C:\Users\scott_000\Documents\GitHub>[0K[?25hR CMD check "flatr_0.01.0.zip"[0K
 * checking package dependencies ...[0K[?25h OK[0K[?25l
 * checking if this is a source package ... OK[0K
 * checking if there is a namespace ... OK[0K
-* checking for .dll and .exe files ... OK[0K
-* checking for hidden files and directories ...[0K[?25h OK[0K[?25l
+[0K[?25h* checking for .dll and .exe files ... OK[0K[?25l
+* checking for hidden files and directories ... OK[0K
 * checking for portable file names ... OK[0K
 * checking whether package 'flatr' can be installed ...[0K[?25h OK[0K[?25l
 * checking package directory ... OK[0K
@@ -32,22 +112,89 @@ C:\Users\scott_000\Documents\GitHub>[0K[?25hR CMD check "flatr_0.01.0.zip"[0K
 * checking for left-over files ... OK[0K
 * checking index information ... OK[0K
 * checking package subdirectories ...[0K[?25h OK[0K[?25l
-* checking R files for non-ASCII characters ...[0K[?25h[?25l OK[0K[49G[?25h[?25l
+* checking R files for non-ASCII characters ...[0K[?25h OK[0K[?25l
 * checking R files for syntax errors ...[0K[?25h OK[0K[?25l
 * checking whether the package can be loaded ...[0K[?25h OK[0K[?25l
-* checking whether the package c[0K[31G[?25h[?25l* checking whether the package can be loaded with stated dependencies ...[0K[?25h OK[0K[?25l
+* checking whether the package can be loaded with stated dependencies[0K[69G[?25h[?25l* checking whether the package can be loaded with stated dependencies ...[0K[?25h OK[0K[?25l
 * checking whether the package can be unloaded cleanly ...[0K[?25h OK[0K[?25l
-* checking whether the namespace can be loaded with stated dependencies ...[0K[73G[?25h[76G[?25l* checking whether the namespace can be loaded with stated dependencies ... OK[0K
-* che[0K[3G[?25h[?25l* checking whether the namespace can be unloaded cleanly ...[0K[?25h OK[0K[?25l
+* checking whether the namespace can be loaded with stated dependencies ...[0K[?25h OK[0K[?25l
+* checking whether the namespace can be unloaded cleanly ...[0K[59G[?25h[61G[?25l* checking whether the namespace can be unloaded cleanly ... OK[0K
 * checking loading without being on the library search path ...[0K[?25h OK[0K[?25l
 [0K[?25h* checking dependencies in R code ...[0K OK[0K[?25l
 * checking S3 generic/method consistency ...[0K[?25h OK[0K[?25l
 * checking replacement functions ...[0K[?25h OK[0K[?25l
 * checking foreign function calls ...[0K[?25h OK[0K[?25l
 * checking R code for possible problems ...[0K[?25h OK[0K[?25l
-* ch[0K[2G[?25h[?25l* checking Rd files ...[0K[?25h OK[0K[?25l
-* checking Rd metadata ...[0K[24G[?25h[27G[?25l* checking Rd metadata ... OK[0K[28G[?25h[?25l
+* ch[0K[3G[?25h[?25l* checking Rd files ...[0K[?25h OK[0K[?25l
+* checking Rd metadata ...[0K[?25h OK[0K[?25l
 * checking Rd cross-references ...[0K[?25h OK[0K[?25l
+* checking for missing documentation entries ...[0K[?25h OK[0K[?25l
+* checking for code/documentation mismatches ...[0K[?25h OK[0K[?25l
+* checking Rd \usage sections ...[0K[?25h OK[0K[?25l
+* checking Rd contents ...[0K[?25h OK[0K[?25l
+* checking for unstated dependencies in examples ...[0K[?25h OK[0K[?25l
+* checking contents[0K[17G[?25h[?25l* checking contents of 'data' directory ... OK[0K
+* checking data for non-ASCII characters ...[0K[?25h OK[0K[?25l
+* checking data for ASCII and uncompressed saves ...[0K[?25h OK[0K[?25l
+* checking e[0K[10G[?25h[?25l* checking examples ...[0K[?25h OK[0K[?25l
+* checking for unstated dependencies in 'tests' ...[0K[?25h OK[0K[?25l
+* checking tests ...[0K[?25h[?25l
+  Running 'testthat.R'[0K[?25h[?25l
+ OK[0K
+[0K[?25h* checking PDF version of manual ...[0K OK[0K[?25l
+* DON[0K[4G[?25h[?25l* DONE[0K
+[0K
+Status: OK[0K
+[0K
+[0K[?25h]0; [?25l
+C:\Users\scott_000\Documents\GitHub>[0K[?25hR CMD check --as--cran "flatr_0.01.0.tar.gz"[0K[80G[79G[78G[77G[76G[74G[73G[72G[71G[70G[69G[68G[66G[65G[64G[63G[62G[60G[59G[57G[56G[55G[?25lC:\Users\scott_000\Documents\GitHub>R CMD check --as-cran "flatr_0.01.0.tar.gz"[0K[54G[?25h]0;[?25l
+[0K[?25h* using log directory 'C:/Users/scott_000/Documents/GitHub/flatr.Rcheck'[0K[?25l
+* using R version 3.4.2 (2017-09-28)[0K
+* using platform: x86_64-w64-mingw32 (64-bit)[0K
+* using session charset: ISO8859-1[0K
+* using option '--as-cran'[0K
+* checking[0K[10G[?25h[?25l* checking for file 'flatr/DESCRIPTION' ... OK[0K
+* checking extension type ... Package[0K
+* this is package 'flatr' version '0.01.0'[0K
+* package encoding: UTF-8[0K
+* checking CRAN incoming feasibility ...[0K[?25h NOTE[0K[?25l
+Maintainer: 'Scott D. Graham <scott.grah95@gmail.com>'[0K
+[0K
+New submission[0K
+[0K
+Version contains leading zeroes (0.01.0)[0K
+* checking package namespace information ... OK[0K
+* checking package dependencies ...[0K[?25h OK[0K[?25l
+* checking if this is a source package ... OK[0K
+* checking if there is a namespace ... OK[0K
+* checking for .dll and .exe files ...[0K[?25h OK[0K[?25l
+* checking for hidden files and directories ... OK[0K
+* checking for portable file names ... OK[0K
+* checking whether package 'flatr' can be installed ...[0K[?25h OK[0K[?25l
+[0K[?25h* checking package directory ... OK[0K[?25l
+* checking DESCRIPTION meta-information ...[0K[?25h OK[0K[?25l
+* checking top-level files ... OK[0K
+* checking for left-over files ... OK[0K
+* checking index information ... OK[0K
+* checking package subdirectories ...[0K[?25h OK[0K[?25l
+* checking R files for non-ASCII characters ...[0K[?25h OK[0K[?25l
+* checking R files for syntax errors ...[0K[?25h OK[0K[?25l
+* checking whether the package can be loaded ...[0K[?25h OK[0K[?25l
+* checking whether the package can be loaded with stated dependenc[0K[65G[?25h[?25l* checking whether the package can be loaded with stated dependencies ...[0K[?25h OK[0K[?25l
+* checking whether the package can be unloaded cleanly ...[0K[?25h OK[0K[?25l
+* checking whether the namespace can be[0K[38G[?25h[?25l* checking whether the namespace can be loaded with stated dependencies ...[0K[?25h OK[0K[?25l
+* checking whether the namespace can be unloaded cleanly ...[0K[59G[?25h[61G[?25l* checking whether the namespace can be unloaded cleanly ... OK[0K
+* checking loading without being on the library search path ...[0K[?25h OK[0K[?25l
+* check[0K[6G[?25h[?25l* checking use of S3 registration ...[0K[?25h OK[0K[?25l
+* checking dependencies in R code ...[0K[?25h OK[0K[?25l
+* checking S3 generic/method consistency ...[0K[?25h OK[0K[?25l
+* checking replacement functions ...[0K[?25h OK[0K[?25l
+* checking foreign function calls ...[0K[?25h OK[0K[?25l
+* checking R code for possible problems ...[0K[?25h OK[0K[?25l
+* checki[0K[6G[?25h[?25l* checking Rd files ...[0K[?25h OK[0K[?25l
+* checking Rd metadata ...[0K[?25h OK[0K[?25l
+* checking Rd line widths ...[0K[?25h OK[0K[?25l
+* checking Rd cross-references[0K[30G[?25h[?25l* checking Rd cross-references ...[0K[?25h OK[0K[?25l
 * checking for missing documentation entries ...[0K[?25h OK[0K[?25l
 * checking for code/documentation mismatches ...[0K[?25h OK[0K[?25l
 * checking Rd \usage sections ...[0K[?25h OK[0K[?25l
@@ -57,74 +204,7 @@ C:\Users\scott_000\Documents\GitHub>[0K[?25hR CMD check "flatr_0.01.0.zip"[0K
 * checking data for non-ASCII characters ...[0K[?25h[?25l OK[0K[46G[?25h[?25l
 * checking data for ASCII and uncompressed saves ...[0K[?25h OK[0K[?25l
 * checking examples ...[0K[?25h OK[0K[?25l
-* checking for unstated dependencies in 'tests' ...[0K[?25h OK[0K[?25l
-* checking tests ...[0K[?25h[?25l
-  Running 'testthat.R'[0K[?25h[?25l
- OK[0K
-[0K[?25h* checking PDF version of manual ...[0K OK[0K[?25l
-* DONE[0K
-[0K
-Status: OK[0K
-[0K
-[0K[?25h]0; [?25l
-C:\Users\scott_000\Documents\GitHub>[0K[?25hR CMD check "flatr_0.01.0.tar.gz"[0K[69G[68G[66G[65G[63G[62G[61G[60G[59G[58G[57G[56G[55G[54G[53G[52G[51G[50G[49G[?25lC:\Users\scott_000\Documents\GitHub>R CMD check  --as-cran"flatr_0.01.0.tar.gz"[0K[59G[?25h[?25lC:\Users\scott_000\Documents\GitHub>R CMD check  --as-cran "flatr_0.01.0.tar.gz"[0K[60G[?25h[59G[58G[57G[56G[55G[54G[53G[52G[51G[50G[?25lC:\Users\scott_000\Documents\GitHub>R CMD check --as-cran "flatr_0.01.0.tar.gz"[0K[49G[?25h]0;[?25l
-[0K[?25h* using log directory 'C:/Users/scott_000/Documents/GitHub/flatr.Rcheck'[0K[?25l
-* using R version 3.4.2 (201[0K[26G[?25h[?25l* using R version 3.4.2 (2017-09-28)[0K
-* using platform: x86_64-w64-mingw32 (64-bit)[0K
-* using session charset: ISO8859-1[0K
-* using option '--as-cran'[0K
-* checking for file 'flatr/DESCRIPTION' ... OK[0K
-* checking extension type ... Package[0K
-* this is package 'flatr' version '0.01.0'[0K
-* package encoding: UTF-8[0K
-* checking CRAN incoming feasibility ...[0K[?25h NOTE[0K[?25l
-Maintainer: 'Scott D. Graham <scott.grah95@gmai[0K[46G[?25h[?25lMaintainer: 'Scott D. Graham <scott.grah95@gmail.com>'[0K
-[0K
-New submission[0K
-[0K
-Version contains leading zeroes (0.01.0)[0K
-* checking package namespace information ... OK[0K
-* checking package dependencies ...[0K[?25h OK[0K[?25l
-* checking if this is a source package ... OK[0K
-* checking if there is a namespace ... OK[0K[?25h[?25l
-* checking for .dll and .exe files ... OK[0K
-* checking for hidden files and directories ... OK[0K
-* checking for portable file names ...[0K[?25h OK[0K[?25l
-* checking whether package 'flatr' can be installed ...[0K[?25h OK[0K[?25l
-[0K[?25h* checking package directory ... OK[0K[?25l
-* checking DESCRIPTION meta-information ...[0K[?25h OK[0K[?25l
-* checking top-le[0K[16G[?25h[?25l* checking top-level files ... OK[0K
-* checking for left-over files ... OK[0K
-* checking index information ... OK[0K
-* checking package subdirectories ...[0K[?25h OK[0K[?25l
-* checking R files for non-ASCII characters ...[0K[?25h OK[0K[?25l
-* checking R files for syntax errors ...[0K[?25h OK[0K[?25l
-* checking whether the package can be loaded ...[0K[?25h OK[0K[?25l
-* checking whether the package can be loaded with stated dependencies ...[0K[?25h OK[0K[?25l
-* checking whether the package can be unloaded cleanly ...[0K[?25h OK[0K[?25l
-* checking whether the namespace can be loaded with stated dependencies ...[0K[?25h OK[0K[?25l
-* checking whether the namespace can be unloaded cleanly ...[0K[?25h OK[0K[?25l
-* checking loading without bei[0K[29G[?25h[?25l* checking loading without being on the library search path ...[0K[?25h OK[0K[?25l
-* checking use of S3 registratio[0K[31G[?25h[?25l* checking use of S3 registration ...[0K[?25h OK[0K[?25l
-* checking dependencies in R code ...[0K[?25h OK[0K[?25l
-* checking S3 generic/method consistency ...[0K[?25h OK[0K[?25l
-* checking replacement functions ...[0K[?25h OK[0K[?25l
-* checking foreign[0K[17G[?25h[?25l* checking foreign function calls ...[0K[?25h OK[0K[?25l
-* checking R code for possible problems ...[0K[?25h OK[0K[?25l
-* checking Rd files ...[0K[21G[?25h[24G[?25l* checking Rd files ... OK[0K
-* checkin[0K[7G[?25h[?25l* checking Rd metadata ...[0K[?25h OK[0K[?25l
-* checking Rd line widths ...[0K[?25h OK[0K[?25l
-* checking Rd cross-references ..[0K[31G[?25h[?25l* checking Rd cross-references ...[0K[?25h OK[0K[?25l
-* checking for missing documentation entries ...[0K[?25h OK[0K[?25l
-* checking for code/documentation mismatches ...[0K[?25h OK[0K[?25l
-* checking Rd \usage sections ...[0K[?25h OK[0K[?25l
-* checking Rd contents ...[0K[?25h OK[0K[?25l
-* checking for unstated dependencies in examples ...[0K[?25h OK[0K[?25l
-* checking contents of 'data' directory ... OK[0K
-* checking data for non-ASCII characters ...[0K[?25h OK[0K[?25l
-* checking data for ASCII and uncompressed saves ...[0K[?25h OK[0K[?25l
-[0K[?25h* checking examples ...[0K OK[0K[?25l
-* checking for unstated dependencies in 'tests' ...[0K[?25h[?25l OK[0K[53G[?25h[?25l
+* checking for unstat[0K[20G[?25h[?25l* checking for unstated dependencies in 'tests' ...[0K[?25h OK[0K[?25l
 * checking tests ...[0K[?25h[?25l
   Running 'testthat.R'[0K[?25h[?25l
 [0K[?25h OK[0K[?25l
@@ -138,4 +218,4 @@ for details.[0K
 [0K
 [0K[?25h[?25l
 [0K[?25h]0; [?25l
-C:\Users\scott_000\Documents\GitHub>[0K[?25h
+C:\Users\scott_000\Documents\GitHub>[0K[?25hR[0K[?25lC:\Users\scott_000\Documents\GitHub>[0K[?25h
