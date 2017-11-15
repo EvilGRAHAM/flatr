@@ -4,12 +4,10 @@
 \alias{goodness_of_fit}
 \title{Calculate the Chi^2 and G^2 Statistics}
 \usage{
-goodness_of_fit(model, response, type = "Chisq", ...)
+goodness_of_fit(model, type = "Chisq", ...)
 }
 \arguments{
 \item{model}{a GLM regression model.}
-
-\item{response}{a string with the same name as the response column in the data}
 
 \item{type}{either "Chisq" or "Gsq", which determines the type of goodness of fit test that is ran. Defaults to "Chisq".}
 
@@ -37,14 +35,14 @@ lung_logit <-
   lung_cancer \%>\%
   flatten_ct() \%>\%
   glm(
-    Lung ~ City + Smoking
+    Lung ~ Smoking
     ,family = binomial
     ,data = .
   )
 
-goodness_of_fit(model = lung_logit, response = "Lung", type = "Chisq")
+goodness_of_fit(model = lung_logit, type = "Chisq")
 lung_logit \%>\%
-  goodness_of_fit(response = "Lung", type = "Gsq")
+  goodness_of_fit(type = "Gsq")
 lung_cancer \%>\%
   flatten_ct() \%>\%
   glm(
@@ -52,6 +50,6 @@ lung_cancer \%>\%
     ,family = binomial
     ,data = .
   ) \%>\%
-  goodness_of_fit(response = "Lung", type = "Chisq")
+  goodness_of_fit()
 
 }

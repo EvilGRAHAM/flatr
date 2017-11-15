@@ -4,8 +4,6 @@
 #'
 #' @param model a GLM regression model.
 #'
-#' @param response a string with the same name as the response column in the data
-#'
 #' @param type either "Chisq" or "Gsq", which determines the type of goodness of fit test that is ran. Defaults to "Chisq".
 #'
 #' @param ... Further arguments passed to or from other methods.
@@ -28,14 +26,14 @@
 #'   lung_cancer %>%
 #'   flatten_ct() %>%
 #'   glm(
-#'     Lung ~ City + Smoking
+#'     Lung ~ Smoking
 #'     ,family = binomial
 #'     ,data = .
 #'   )
 #'
-#' goodness_of_fit(model = lung_logit, response = "Lung", type = "Chisq")
+#' goodness_of_fit(model = lung_logit, type = "Chisq")
 #' lung_logit %>%
-#'   goodness_of_fit(response = "Lung", type = "Gsq")
+#'   goodness_of_fit(type = "Gsq")
 #' lung_cancer %>%
 #'   flatten_ct() %>%
 #'   glm(
@@ -43,16 +41,16 @@
 #'     ,family = binomial
 #'     ,data = .
 #'   ) %>%
-#'   goodness_of_fit(response = "Lung", type = "Chisq")
+#'   goodness_of_fit()
 #'
-#' @importFrom stats coef pchisq predict
+#' @importFrom stats coef pchisq predict formula
 #' @importFrom magrittr %>%
 #' @importFrom tibble tibble
 #' @import dplyr
 #'
 #' @export
 
-goodness_of_fit <- function(model, response, type = "Chisq", ...){
+goodness_of_fit <- function(model, type = "Chisq", ...){
 
   # Definitions for variables used below to satisfy devtools::check()
   Response <- as.character(NULL)
@@ -76,7 +74,7 @@ goodness_of_fit <- function(model, response, type = "Chisq", ...){
 
     data <-
       data %>%
-      rename(Response = !!response)
+      rename(Response = !!as.character(model$terms[[2]]))
 
     # Number of combinations of the response variable - number of parameters in the model
     df <-
@@ -96,7 +94,7 @@ goodness_of_fit <- function(model, response, type = "Chisq", ...){
       # Groups by not the response column
       group_by_at(
         vars(
-          colnames(data)[colnames(data) != "Response"]
+          all.vars(formula(model))[all.vars(formula(model)) != model$terms[[2]]]
         )
       ) %>%
       # Summarizes by the 2 explanatory variables, and then finds the number of entries for each level of the Response
@@ -106,8 +104,6 @@ goodness_of_fit <- function(model, response, type = "Chisq", ...){
         ,Total = Response_1 + Response_0
       ) %>%
       ungroup()
-
-    response_n_cols <- c("n", response)
 
     data_out <-
       data_summary %>%
