@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.9.26)  14 NOV 2017 17:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.9.26)  14 NOV 2017 17:53
 entering extended mode
-**C:/Users/scott_000/AppData/Local/Temp/RtmpYBeft2/Rd2pdf38942e0061f4/Rd2.tex
-(C:/Users/scott_000/AppData/Local/Temp/RtmpYBeft2/Rd2pdf38942e0061f4/Rd2.tex
+**C:/Users/scott_000/AppData/Local/Temp/RtmpQx8nU4/Rd2pdf12431364dfe/Rd2.tex
+(C:/Users/scott_000/AppData/Local/Temp/RtmpQx8nU4/Rd2pdf12431364dfe/Rd2.tex
 LaTeX2e <2016/03/31> patch level 3
 Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
 
@@ -860,12 +860,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 180.
  ) 
 Here is how much of TeX's memory you used:
  6734 strings out of 493334
- 95392 string characters out of 3139240
+ 95389 string characters out of 3139240
  178779 words of memory out of 3000000
  10112 multiletter control sequences out of 15000+200000
  41277 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,5n,36p,286b,590s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,5n,36p,285b,590s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/inconsolata/i4-ts1.enc}{C:/Progr
 am Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}{C:/Program Files/MiKTeX 2.
 9/fonts/enc/dvips/inconsolata/i4-t1-0.enc}<C:/Program Files/MiKTeX 2.9/fonts/ty

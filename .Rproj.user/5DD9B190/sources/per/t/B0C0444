@@ -1,21 +1,21 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1509741539588.000,
+    "created" : 1510710533827.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "1898063495",
-    "id" : "C3C0F6A3",
+    "id" : "B0C0444",
     "lastKnownWriteTime" : 1510706868,
-    "last_content_update" : 1510706868934,
+    "last_content_update" : 1510706868,
     "path" : "~/GitHub/flatr/R/flatten_ct.R",
     "project_path" : "R/flatten_ct.R",
     "properties" : {
         "cursorPosition" : "27,14",
         "scrollLine" : "0"
     },
-    "relative_order" : 1,
+    "relative_order" : 2,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

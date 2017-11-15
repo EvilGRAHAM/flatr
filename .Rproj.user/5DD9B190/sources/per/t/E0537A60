@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1510258190509.000,
+    "created" : 1510710533306.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "2634132625",
-    "id" : "CE2A4CB",
+    "id" : "E0537A60",
     "lastKnownWriteTime" : 1510258732,
-    "last_content_update" : 1510258732405,
+    "last_content_update" : 1510258732,
     "path" : "~/GitHub/flatr/R/data-lung_cancer.R",
     "project_path" : "R/data-lung_cancer.R",
     "properties" : {
@@ -16,7 +16,7 @@
         "scrollLine" : "0",
         "tempName" : "Untitled1"
     },
-    "relative_order" : 4,
+    "relative_order" : 1,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

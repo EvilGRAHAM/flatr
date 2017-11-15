@@ -1,4 +1,4 @@
-* using log directory 'C:/Users/scott_000/Documents/GitHub/flatr/flatr.Rcheck'
+* using log directory 'C:/Users/scott_000/Documents/GitHub/flatr.Rcheck'
 * using R version 3.4.2 (2017-09-28)
 * using platform: x86_64-w64-mingw32 (64-bit)
 * using session charset: ISO8859-1
@@ -23,9 +23,7 @@ Version contains leading zeroes (0.01.0)
 * checking whether package 'flatr' can be installed ... OK
 * checking package directory ... OK
 * checking DESCRIPTION meta-information ... OK
-* checking top-level files ... NOTE
-Non-standard file/directory found at top level:
-  'flatr_0.01.0.tar.gz'
+* checking top-level files ... OK
 * checking for left-over files ... OK
 * checking index information ... OK
 * checking package subdirectories ... OK
@@ -58,4 +56,4 @@ Non-standard file/directory found at top level:
 * checking examples ... OK
 * checking PDF version of manual ... OK
 * DONE
-Status: 2 NOTEs
+Status: 1 NOTE

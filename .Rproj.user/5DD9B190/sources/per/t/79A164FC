@@ -1,21 +1,21 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1509741625533.000,
+    "created" : 1510710538489.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "2166176404",
-    "id" : "AD03A7DD",
+    "id" : "79A164FC",
     "lastKnownWriteTime" : 1510706862,
-    "last_content_update" : 1510706862665,
+    "last_content_update" : 1510706862,
     "path" : "~/GitHub/flatr/R/goodness_of_fit.R",
     "project_path" : "R/goodness_of_fit.R",
     "properties" : {
-        "cursorPosition" : "23,82",
-        "scrollLine" : "7"
+        "cursorPosition" : "37,53",
+        "scrollLine" : "23"
     },
-    "relative_order" : 2,
+    "relative_order" : 3,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"
