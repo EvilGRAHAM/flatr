@@ -126,7 +126,7 @@ goodness_of_fit <- function(model, response, type = "Chisq", ...){
       )
 
     if(type == "Chisq"){
-      Chisq_Stat <-
+      test_stat <-
         data_out %>%
         mutate(
           ChiSq_0 = (Response_0 - Expected_0)^2 / Expected_0
@@ -138,18 +138,10 @@ goodness_of_fit <- function(model, response, type = "Chisq", ...){
         ) %>%
         sum()
 
-      p.value <- pchisq(q = Chisq_Stat, df = df, lower.tail = FALSE)
+      test_name <- "Chi-squared"
 
-      results <-
-        list(
-          test = "Chi-squared"
-          ,model = deparse(substitute(model))
-          ,statistic = Chisq_Stat
-          ,df = df
-          ,p.value = p.value
-        )
     } else if(type == "Gsq"){
-      Gsq_Stat <-
+      test_stat <-
         data_out %>%
         mutate(
           GSq_0 = 2 * Response_0 * log(Response_0 / Expected_0)
@@ -161,19 +153,22 @@ goodness_of_fit <- function(model, response, type = "Chisq", ...){
         ) %>%
         sum()
 
-      p.value <- pchisq(q = Gsq_Stat, df = df, lower.tail = FALSE)
+      test_name <- "G-squared"
 
-      results <-
-        list(
-          test = "G-squared"
-          ,model = deparse(substitute(model))
-          ,statistic = Gsq_Stat
-          ,df = df
-          ,p.value = p.value
-        )
     } else{
       stop("Please enter a valid test.")
     }
+
+    p.value <- pchisq(q = test_stat, df = df, lower.tail = FALSE)
+
+    results <-
+      list(
+        test = test_name
+        ,model = deparse(substitute(model))
+        ,statistic = test_stat
+        ,df = df
+        ,p.value = p.value
+      )
 
     class(results) <- "ct_goodness_of_fit"
 

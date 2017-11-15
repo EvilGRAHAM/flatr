@@ -15,14 +15,10 @@ Functions
 -   `flatten_ct()` takes an *i* × *j* × *k* contingency table, and turns it into a tibble.
 
 -   `goodness_of_fit()` takes a logistic or probit regression model, and does a *χ*<sup>2</sup> Goodness of Fit Test. The test statistic is one of:
-    $$
-      \\chi^{2} =
-      \\sum\_{\\forall i}\\frac{\\left( O\_{i} - E\_{i} \\right)^{2}}{E\_{i}}
-    $$
-    $$
-      G^{2} =
-      \\sum\_{\\forall i}O\_{i} \\ln\\left( \\frac{O\_{i}}{E\_{i}} \\right)
-    $$
+
+[Chi Squared Equation](https://latex.codecogs.com/gif.latex?%5Cchi%5E%7B2%7D%20%3D%20%5Csum_%7B%5Cforall%20i%7D%5Cfrac%7B%5Cleft%28%20O_%7Bi%7D%20-%20E_%7Bi%7D%20%5Cright%29%5E%7B2%7D%7D%7BE_%7Bi%7D%7D)
+
+[G Squared Equation](https://latex.codecogs.com/gif.latex?G%5E%7B2%7D%20%3D%20%5Csum_%7B%5Cforall%20i%7DO_%7Bi%7D%20%5Cln%5Cleft%28%20%5Cfrac%7BO_%7Bi%7D%7D%7BE_%7Bi%7D%7D%20%5Cright%29)
 
 Tidy Data
 ---------

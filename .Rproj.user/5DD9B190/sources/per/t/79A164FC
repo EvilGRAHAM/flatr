@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2166176404",
+    "hash" : "3989281058",
     "id" : "79A164FC",
-    "lastKnownWriteTime" : 1510706862,
-    "last_content_update" : 1510706862,
+    "lastKnownWriteTime" : 1510716921,
+    "last_content_update" : 1510716921,
     "path" : "~/GitHub/flatr/R/goodness_of_fit.R",
     "project_path" : "R/goodness_of_fit.R",
     "properties" : {
-        "cursorPosition" : "37,53",
+        "cursorPosition" : "20,54",
         "scrollLine" : "0"
     },
     "relative_order" : 3,
