@@ -1,0 +1,230 @@
+
+R version 3.4.2 (2017-09-28) -- "Short Summer"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "flatr"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> options(pager = "console")
+> base::assign(".ExTimings", "flatr-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('flatr')
+Loading required package: dplyr
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Loading required package: tibble
+Loading required package: magrittr
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("flatten_ct")
+> ### * flatten_ct
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: flatten_ct
+> ### Title: Flatten i*j*k contingency tables into tidy data.
+> ### Aliases: flatten_ct
+> 
+> ### ** Examples
+> 
+> flatten_ct(lung_cancer)
+# A tibble: 8,419 x 3
+   Smoking   Lung    City
+    <fctr> <fctr>  <fctr>
+ 1       Y      Y Beijing
+ 2       Y      Y Beijing
+ 3       Y      Y Beijing
+ 4       Y      Y Beijing
+ 5       Y      Y Beijing
+ 6       Y      Y Beijing
+ 7       Y      Y Beijing
+ 8       Y      Y Beijing
+ 9       Y      Y Beijing
+10       Y      Y Beijing
+# ... with 8,409 more rows
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("flatten_ct", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("goodness_of_fit")
+> ### * goodness_of_fit
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: goodness_of_fit
+> ### Title: Calculate the Chi^2 and G^2 Statistics
+> ### Aliases: goodness_of_fit
+> 
+> ### ** Examples
+> 
+> lung_logit <-
++   lung_cancer %>%
++   flatten_ct() %>%
++   glm(
++     Lung ~ City + Smoking
++     ,family = binomial
++     ,data = .
++   )
+> 
+> goodness_of_fit(model = lung_logit, response = "Lung", type = "Chisq")
+
+Chi-squared Goodness of Fit Test 
+
+model: lung_logit 
+Chi-squared = 5.19987, df = 7, p-value = 0.63559> lung_logit %>%
++   goodness_of_fit(response = "Lung", type = "Gsq")
+
+G-squared Goodness of Fit Test 
+
+model: . 
+G-squared = 5.1958, df = 7, p-value = 0.63608> lung_cancer %>%
++   flatten_ct() %>%
++   glm(
++     Lung ~ City + Smoking
++     ,family = binomial
++     ,data = .
++   ) %>%
++   goodness_of_fit(response = "Lung", type = "Chisq")
+
+Chi-squared Goodness of Fit Test 
+
+model: . 
+Chi-squared = 5.19987, df = 7, p-value = 0.63559> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("goodness_of_fit", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:bindrcpp'
+
+> nameEx("lung_cancer")
+> ### * lung_cancer
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: lung_cancer
+> ### Title: Lung Cancer by whether or not a person smokes and City.
+> ### Aliases: lung_cancer
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> lung_cancer
+, , City = Beijing
+
+       Lung
+Smoking   Y   N
+      Y 126 100
+      N  35  61
+
+, , City = Shanghai
+
+       Lung
+Smoking   Y   N
+      Y 908 688
+      N 497 807
+
+, , City = Shenyang
+
+       Lung
+Smoking   Y   N
+      Y 913 747
+      N 336 598
+
+, , City = Nanjing
+
+       Lung
+Smoking   Y   N
+      Y 235 172
+      N  58 121
+
+, , City = Harbin
+
+       Lung
+Smoking   Y   N
+      Y 402 308
+      N 121 215
+
+, , City = Zhengzhou
+
+       Lung
+Smoking   Y   N
+      Y 182 156
+      N  72  98
+
+, , City = Taiyuan
+
+       Lung
+Smoking  Y  N
+      Y 60 99
+      N 11 43
+
+, , City = Nanchang
+
+       Lung
+Smoking   Y  N
+      Y 104 89
+      N  21 36
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("lung_cancer", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  1.27 0.04 1.33 NA NA 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

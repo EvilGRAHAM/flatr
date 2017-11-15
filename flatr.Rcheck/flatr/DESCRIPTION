@@ -1,0 +1,18 @@
+Package: flatr
+Type: Package
+Title: Transforms Contingency Tables to Data Frames, and Analyses Them
+Version: 0.01.0
+Author: Scott D. Graham
+Maintainer: Scott D. Graham <scott.grah95@gmail.com>
+Description: Contingency Tables are a pain to work with when you want to run regressions.
+  This package takes them, flattens them into a long data frame, so you can more easily analyse them!
+  As well, you can calculate other related statistics. All of this is done so in a 'tidy' manner,
+  so it should tie in nicely with 'tidyverse' series of packages.
+Depends: R(>= 3.4.2), stats, dplyr, tibble, magrittr
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+NeedsCompilation: no
+Packaged: 2017-11-15 00:48:05 UTC; scott_000
+Built: R 3.4.2; ; 2017-11-15 00:49:25 UTC; windows

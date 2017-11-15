@@ -5,13 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1823459387",
+    "hash" : "1898063495",
     "id" : "C3C0F6A3",
-    "lastKnownWriteTime" : 1510258575,
-    "last_content_update" : 1510258575404,
+    "lastKnownWriteTime" : 1510706868,
+    "last_content_update" : 1510706868934,
     "path" : "~/GitHub/flatr/R/flatten_ct.R",
     "project_path" : "R/flatten_ct.R",
     "properties" : {
+        "cursorPosition" : "27,14",
+        "scrollLine" : "0"
     },
     "relative_order" : 1,
     "source_on_save" : false,

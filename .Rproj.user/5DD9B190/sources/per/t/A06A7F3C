@@ -5,13 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "203749551",
+    "hash" : "2118194491",
     "id" : "A06A7F3C",
-    "lastKnownWriteTime" : 1510259432,
-    "last_content_update" : 1510259432382,
+    "lastKnownWriteTime" : 1510706851,
+    "last_content_update" : 1510706851899,
     "path" : "~/GitHub/flatr/R/print_ct_goodness_of_fit.R",
     "project_path" : "R/print_ct_goodness_of_fit.R",
     "properties" : {
+        "cursorPosition" : "6,64",
+        "scrollLine" : "0",
         "tempName" : "Untitled1"
     },
     "relative_order" : 4,

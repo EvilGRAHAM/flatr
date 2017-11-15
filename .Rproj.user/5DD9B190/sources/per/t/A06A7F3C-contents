@@ -4,7 +4,7 @@
 #'
 #' @param x A list
 #'
-#' @author Scott D Graham, \email{scott.grah95@@gmail.com}
+#' @param ... Further arguments passed to or from other methods.
 #'
 #' @export
 print.ct_goodness_of_fit <- function(x, ...){

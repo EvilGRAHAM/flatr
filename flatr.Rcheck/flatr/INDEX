@@ -1,0 +1,7 @@
+flatten_ct              Flatten i*j*k contingency tables into tidy
+                        data.
+goodness_of_fit         Calculate the Chi^2 and G^2 Statistics
+lung_cancer             Lung Cancer by whether or not a person smokes
+                        and City.
+print.ct_goodness_of_fit
+                        Print method for goodness_of_fit()

@@ -1,0 +1,4 @@
+name	user	system	elapsed
+flatten_ct	0.09	0.00	0.10	
+goodness_of_fit	0.64	0.00	0.64	
+lung_cancer	0	0	0	

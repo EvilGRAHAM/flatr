@@ -8,6 +8,8 @@
 #'
 #' @param type either "Chisq" or "Gsq", which determines the type of goodness of fit test that is ran. Defaults to "Chisq".
 #'
+#' @param ... Further arguments passed to or from other methods.
+#'
 #' @return A list with class "\code{ct_goodness_of_fit}" containing the following components:
 #'
 #' @return \code{test} the type of test used.
@@ -20,8 +22,6 @@
 #'   This equals the number of combinations for explanatory variables less the number of parameters in the model
 #'
 #' @return \code{p.value} The p-value calculated under a Chi-Squared distribution.
-#'
-#' @author Scott D Graham, \email{scott.grah95@@gmail.com}
 #'
 #' @examples
 #' lung_logit <-
@@ -45,6 +45,7 @@
 #'   ) %>%
 #'   goodness_of_fit(response = "Lung", type = "Chisq")
 #'
+#' @importFrom stats coef pchisq predict
 #' @importFrom magrittr %>%
 #' @importFrom tibble tibble
 #' @import dplyr
@@ -52,11 +53,22 @@
 #' @export
 
 goodness_of_fit <- function(model, response, type = "Chisq", ...){
-  # This function is designed to only work with contingency tables in the form of an array.
-  #
-  # if(is.null(data)){
-    data <- model$data
-  # }
+
+  # Definitions for variables used below to satisfy devtools::check()
+  Response <- as.character(NULL)
+  Response_Num <- as.numeric(NULL)
+  Response_0 <- as.numeric(NULL)
+  Response_1 <- as.numeric(NULL)
+  phat <- as.numeric(NULL)
+  Total <- as.numeric(NULL)
+  Expected_0 <- as.numeric(NULL)
+  Expected_1 <- as.numeric(NULL)
+  ChiSq_0 <- as.numeric(NULL)
+  ChiSq_1 <- as.numeric(NULL)
+  GSq_0 <- as.numeric(NULL)
+  GSq_1 <- as.numeric(NULL)
+
+  data <- model$data
   # If the inputed data is not an array, the function is exited, and an error message is displayed.
   if(!is.data.frame(data)){
     stop("Please enter a data frame")

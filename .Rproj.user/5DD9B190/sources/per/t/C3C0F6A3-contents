@@ -6,8 +6,6 @@
 #'
 #' @return A tibble with 3 columns.
 #'
-#' @author Scott D Graham, \email{scott.grah95@@gmail.com}
-#'
 #' @examples
 #' flatten_ct(lung_cancer)
 #'
