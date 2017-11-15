@@ -27,9 +27,9 @@ Contingency tables are a popular means of presenting categorical data in textboo
 
 * `goodness_of_fit()` takes a logistic or probit regression model, and does a $\chi^{2}$ Goodness of Fit Test. The test statistic is one of:
 
-![Chi Squared Equation](https://latex.codecogs.com/gif.latex?%5Cchi%5E%7B2%7D%20%3D%20%5Csum_%7B%5Cforall%20i%7D%5Cfrac%7B%5Cleft%28%20O_%7Bi%7D%20-%20E_%7Bi%7D%20%5Cright%29%5E%7B2%7D%7D%7BE_%7Bi%7D%7D)
+  + ![Chi Squared Equation](https://latex.codecogs.com/gif.latex?%5Cchi%5E%7B2%7D%20%3D%20%5Csum_%7B%5Cforall%20i%2Cj%7D%5Cfrac%7B%5Cleft%28%20O_%7Bi%2Cj%7D%20-%20E_%7Bi%2Cj%7D%20%5Cright%29%5E%7B2%7D%7D%7BE_%7Bi%2Cj%7D%7D)
 
-![G Squared Equation](https://latex.codecogs.com/gif.latex?G%5E%7B2%7D%20%3D%20%5Csum_%7B%5Cforall%20i%7DO_%7Bi%7D%20%5Cln%5Cleft%28%20%5Cfrac%7BO_%7Bi%7D%7D%7BE_%7Bi%7D%7D%20%5Cright%29)
+  + ![G Squared Equation](https://latex.codecogs.com/gif.latex?G%5E%7B2%7D%20%3D%202%5Csum_%7B%5Cforall%20i%2Cj%7DO_%7Bi%2Ci%7D%20%5Cln%5Cleft%28%20%5Cfrac%7BO_%7Bi%2Ci%7D%7D%7BE_%7Bi%2Ci%7D%7D%20%5Cright%29)
 
 ## Tidy Data
 `flatr` is designed to work with the [tidyverse](https://www.tidyverse.org/) series of packages. Tidy data is data in a "long" format, where each variable has its own column.
