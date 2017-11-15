@@ -12,10 +12,47 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "README-"
 )
+library(flatr)
+data("lung_cancer")
 ```
 
 # flatr
 ## Overview
 `flatr` is a package designed to make the analysis of contingency tables easier. 
 
-Contingency tables are a popular means of presenting categorical data in textbooks, as they take up very little space, while still allowing to present all the data. However, this means makes it tough to run analysis on them. `flatr` helps ease this pain by turning $i \times j \times k$ contingency tables into "tidy" data.
+Contingency tables are a popular means of presenting categorical data in textbooks, as they take up very little space, while still allowing to present all the data. However, this means makes it tough to run analysis on them. `flatr` helps ease this pain by turning $i \times j \times k$ contingency tables into "tidy" data. 
+
+## Functions
+* `flatten_ct()` takes an $i \times j \times k$ contingency table, and turns it into a tibble.
+
+* `goodness_of_fit()` takes a logistic or probit regression model, and does a $\chi^{2}$ Goodness of Fit Test. The test statistic is one of:
+$$
+  \chi^{2} =
+  \sum_{\forall i}\frac{\left( O_{i} - E_{i} \right)^{2}}{E_{i}}
+$$
+$$
+  G^{2} =
+  \sum_{\forall i}O_{i} \ln\left( \frac{O_{i}}{E_{i}} \right)
+$$
+
+## Tidy Data
+`flatr` is designed to work with the [tidyverse](https://www.tidyverse.org/) series of packages. Tidy data is data in a "long" format, where each variable has its own column.
+
+## Usage
+```{r message = FALSE}
+lung_cancer
+
+lung_tidy <- flatten_ct(lung_cancer)
+lung_tidy
+
+lung_logit <- glm(Lung ~ Smoking + City, family = binomial, data = lung_tidy)
+goodness_of_fit(model = lung_logit, response = "Lung", type = "Chisq")
+
+lung_tidy %>% 
+  glm(
+    Lung ~ Smoking + City
+    ,family = binomial(link = "probit")
+    ,data = .
+  ) %>% 
+  goodness_of_fit(response = "Lung", type = "Gsq")
+```
