@@ -37,9 +37,54 @@ Contingency tables are a popular means of presenting categorical data in textboo
 `flatr` is designed to work with the [tidyverse](https://www.tidyverse.org/) series of packages. Tidy data is data in a "long" format, where each variable has its own column.
 
 ## Usage
-```{r message = FALSE}
-lung_cancer
+| Beijing | Lung |     |
+|--------:|------|-----|
+| Smoking | Yes  | No  |
+|     Yes | 126  | 100 |
+|      No | 35   | 61  |
 
+| Shanghai | Lung |     |
+|---------:|------|-----|
+|  Smoking | Yes  | No  |
+|      Yes | 908  | 688 |
+|       No | 497  | 807 |
+
+| Shenyang | Lung |     |
+|---------:|------|-----|
+|  Smoking | Yes  | No  |
+|      Yes | 913  | 747 |
+|       No | 336  | 598 |
+
+| Nanjing | Lung |     |
+|--------:|------|-----|
+| Smoking | Yes  | No  |
+|     Yes | 235  | 172 |
+|      No | 58   | 121 |
+
+|  Harbin | Lung |     |
+|--------:|------|-----|
+| Smoking | Yes  | No  |
+|     Yes | 402  | 308 |
+|      No | 121  | 215 |
+
+| Zhengzhou | Lung |     |
+|----------:|------|-----|
+|   Smoking | Yes  | No  |
+|       Yes | 182  | 156 |
+|        No | 72   | 98  |
+
+| Taiyuan | Lung |    |
+|--------:|------|----|
+| Smoking | Yes  | No |
+|     Yes | 60   | 99 |
+|      No | 11   | 43 |
+
+| Nanchang | Lung |    |
+|---------:|------|----|
+|  Smoking | Yes  | No |
+|      Yes | 104  | 89 |
+|       No | 21   | 36 |
+```{r message = FALSE}
 lung_tidy <- flatten_ct(lung_cancer)
 lung_tidy
 

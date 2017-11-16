@@ -30,64 +30,55 @@ Tidy Data
 Usage
 -----
 
-``` r
-lung_cancer
-#> , , City = Beijing
-#> 
-#>        Lung
-#> Smoking   Y   N
-#>       Y 126 100
-#>       N  35  61
-#> 
-#> , , City = Shanghai
-#> 
-#>        Lung
-#> Smoking   Y   N
-#>       Y 908 688
-#>       N 497 807
-#> 
-#> , , City = Shenyang
-#> 
-#>        Lung
-#> Smoking   Y   N
-#>       Y 913 747
-#>       N 336 598
-#> 
-#> , , City = Nanjing
-#> 
-#>        Lung
-#> Smoking   Y   N
-#>       Y 235 172
-#>       N  58 121
-#> 
-#> , , City = Harbin
-#> 
-#>        Lung
-#> Smoking   Y   N
-#>       Y 402 308
-#>       N 121 215
-#> 
-#> , , City = Zhengzhou
-#> 
-#>        Lung
-#> Smoking   Y   N
-#>       Y 182 156
-#>       N  72  98
-#> 
-#> , , City = Taiyuan
-#> 
-#>        Lung
-#> Smoking  Y  N
-#>       Y 60 99
-#>       N 11 43
-#> 
-#> , , City = Nanchang
-#> 
-#>        Lung
-#> Smoking   Y  N
-#>       Y 104 89
-#>       N  21 36
+|  Beijing| Lung |     |
+|--------:|------|-----|
+|  Smoking| Yes  | No  |
+|      Yes| 126  | 100 |
+|       No| 35   | 61  |
 
+|  Shanghai| Lung |     |
+|---------:|------|-----|
+|   Smoking| Yes  | No  |
+|       Yes| 908  | 688 |
+|        No| 497  | 807 |
+
+|  Shenyang| Lung |     |
+|---------:|------|-----|
+|   Smoking| Yes  | No  |
+|       Yes| 913  | 747 |
+|        No| 336  | 598 |
+
+|  Nanjing| Lung |     |
+|--------:|------|-----|
+|  Smoking| Yes  | No  |
+|      Yes| 235  | 172 |
+|       No| 58   | 121 |
+
+|   Harbin| Lung |     |
+|--------:|------|-----|
+|  Smoking| Yes  | No  |
+|      Yes| 402  | 308 |
+|       No| 121  | 215 |
+
+|  Zhengzhou| Lung |     |
+|----------:|------|-----|
+|    Smoking| Yes  | No  |
+|        Yes| 182  | 156 |
+|         No| 72   | 98  |
+
+|  Taiyuan| Lung |     |
+|--------:|------|-----|
+|  Smoking| Yes  | No  |
+|      Yes| 60   | 99  |
+|       No| 11   | 43  |
+
+|  Nanchang| Lung |     |
+|---------:|------|-----|
+|   Smoking| Yes  | No  |
+|       Yes| 104  | 89  |
+|        No| 21   | 36  |
+
+``` r
 lung_tidy <- flatten_ct(lung_cancer)
 lung_tidy
 #> # A tibble: 8,419 x 3
