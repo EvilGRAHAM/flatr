@@ -18,6 +18,7 @@ data("lung_cancer")
 
 # flatr
 [![Travis-CI Build Status](https://travis-ci.org/EvilGRAHAM/flatr.svg?branch=master)](https://travis-ci.org/EvilGRAHAM/flatr)
+
 ## Overview
 `flatr` is a package designed to make the analysis of contingency tables easier. 
 
