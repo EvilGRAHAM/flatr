@@ -49,11 +49,7 @@
 goodness_of_fit_loglin <- function(model, type = "Chisq", ...){
 
   # Definitions for variables used below to satisfy devtools::check()
-  Response <- as.character(NULL)
-  Response_Num <- as.numeric(NULL)
   Response <- as.numeric(NULL)
-  phat <- as.numeric(NULL)
-  Total <- as.numeric(NULL)
   Expected <- as.numeric(NULL)
   ChiSq <- as.numeric(NULL)
   GSq <- as.numeric(NULL)
