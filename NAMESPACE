@@ -3,6 +3,7 @@
 S3method(print,ct_goodness_of_fit)
 export(flatten_ct)
 export(goodness_of_fit)
+export(goodness_of_fit_loglin)
 import(dplyr)
 importFrom(magrittr,"%>%")
 importFrom(stats,coef)

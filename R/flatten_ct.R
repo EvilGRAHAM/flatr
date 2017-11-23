@@ -47,7 +47,7 @@ flatten_ct <- function(data){
         for(j in 1:dim_num[2]){
           for(k in 1:dim_num[3]){
             h <- h + 1
-            num_reps[h] <- sum(data[i, j, k])
+            num_reps[h] <- data[i, j, k]
           }
         }
       }
@@ -62,6 +62,10 @@ flatten_ct <- function(data){
 
     # Takes just the names of the dimensions
     data_dim_names <- names(data_names_levels)
+
+    # Add bit to take i*j and turn into i*j*1
+    # test <- array(data = c(2, 3, 4, 1), dim = c(2, 2), dimnames = list(x = c(0, 1), y = c(0, 1)))
+    # array(data = test, dim = c(2, 2, 1), dimnames = list(x = c(0, 1), y = c(0, 1), z = NULL))
 
     # Gets the levels for each of dimensions i, j, and k.
     data_i_levels <- data_names_levels[[1]]
