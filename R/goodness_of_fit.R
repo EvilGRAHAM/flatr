@@ -26,7 +26,7 @@
 #'   lung_cancer %>%
 #'   flatten_ct() %>%
 #'   glm(
-#'     Lung ~ Smoking
+#'     Lung ~ City + Smoking
 #'     ,family = binomial
 #'     ,data = .
 #'   )
